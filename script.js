@@ -15,33 +15,25 @@ var Counter = React.createClass({
         });
     },
 
-    componentDidMount: function () {
-        console.log('test funcion component didMount');
-    },
-    componentWillUnmount: function () {
-        console.log('test funcion componentwillUnmount');
-    },
 
     render: function () {
-        return React.createElement('div', {
+        return React.createElement('div', {},
+            React.createElement('span', {}, 'Licznik ' + this.state.counter),
+            React.createElement('button', {
                 onClick: this.increment
-            },
-            React.createElement('span', {}, 'Licznik ' + this.state.counter)
+            }, '+'),
+            React.createElement('button', {
+                onClick: this.decrement
+            }, '-')
+
         );
-    },
 
-
-
+    }
 
 });
 
+var element = React.createElement('div', {},
+    React.createElement(Counter),
+    React.createElement(Counter))
 
-
-
-
-
-
-
-
-var element = React.createElement(Counter);
 ReactDOM.render(element, document.getElementById('app'));
